@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Flask</title>
+</head>
+<body>
+    <h2>Add contact</h2>
+    <form action="/" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <label for="surname">Surname:</label>
+        <input type="text" name="surname" id="surname">
+        <input type="submit" value="Add contact">
+    </form>
+
+    <h2>Contacts</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Surname</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for contact in contacts %}
+            <tr>
+                <td>{{ contact.ID }}</td>
+                <td>{{ contact.Name }}</td>
+                <td>{{ contact.Surname }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
