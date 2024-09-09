@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Flask</title>
+</head>
+<body>
+    <h2>Update contact</h2>
+    <form action="/edit/{{contact.ID}}" method="post">
+        <label for="newName">New name:</label>
+        <input type="text" id="newName" name="newName" value="{{contact.Name}}">
+        <label for="newSurname">New surname:</label>
+        <input type="text" name="newSurname" id="newSurname" value="{{contact.Surname}}">
+        <label for="contactId">Id:</label>
+        <input type="number" name="contactId" id="contactId" min="1">
+        <input type="submit" value="Update contact">
+    </form>
+    <a href="{{ url_for('index') }}">Cancelar</a>
+</body>
+</html>
