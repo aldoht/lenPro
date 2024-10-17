@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="em">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Poll</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Create a new poll</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div>
+                <label for="{{ question_form.question_text.id_for_label }}">What is the question?</label>
+                {{ question_form.question_text }}
+            </div>
+            <div>
+                <label for="{{ question_form.pub_date.id_for_label }}">Publication date:</label>
+                {{ question_form.pub_date }}
+            </div>
+
+            <h3>Options</h3>
+            {% for i in "012" %}
+                <div>
+                    <label for="choice_text_{{ forloop.counter }}">Option {{ forloop.counter }}:</label>
+                    <input type="text" name="choice_text" id="choice_text_{{ forloop.counter }}" required>
+                </div>
+            {% endfor %}
+
+            <button type="submit">Send</button>
+        </form>
+    </div>
+</body>
+</html>
